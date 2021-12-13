@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<!-- Head -->
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <!-- Header -->
+  <header th:replace="/fragments/header :: header"></header>
+
+  <div class="contenedor_nav">
+    <!-- Navigation -->
+    <nav th:replace="/fragments/navbar :: nav"></nav>
+  </div>
+
+  <div class="title">
+    <h2 class="mb-0"> BIENVENID@ </h2>
+    <h2 class="masthead-subheading mb-0" th:if="${session.usuariosession != null}"
+      th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}">
+    </h2>      
+  </div>
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/img/flip1.jpg" class="d-block w-100" alt="flip1">
+      </div>
+      <div class="carousel-item">
+        <img src="/img/flip2.jpg" class="d-block w-100" alt="flip2">
+      </div>
+      <div class="carousel-item">
+        <img src="/img/flip3.jpg" class="d-block w-100" alt="flip3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-basic">
+    <footer th:replace="/fragments/footer :: footer"></footer>
+  </div>
+
+  <!-- JS Bootstrap -->
+  <script th:replace="/fragments/bootsjs :: script"></script>
+</body>
+
+</html>

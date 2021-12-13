@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<!-- Head -->
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+  <!-- Header -->
+  <header th:replace="/fragments/header :: header"></header>
+
+  <div class="contenedor_nav">
+    <!-- Navigation -->
+    <nav th:replace="/fragments/navbar :: nav"></nav>
+  </div>
+
+  <div class="title_libro">
+    <h3>MENU LIBRO</h3>
+  </div>
+
+  <div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Exito</h5>
+      <p class="card-text" th:text="${exito}"></p>
+    </div>
+  </div>
+  <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Error</h5>
+      <p class="card-text" th:text="${error}"></p>
+    </div>
+  </div>
+
+  <div class="formulario">
+    <h2>CREAR NUEVO LIBRO</h2>
+    <form th:action="@{/libro/registrolibro}" method="POST">
+      <div class="mb-2">
+        <label for="isbn" class="form-label">ISBN</label>
+        <input type="text" class="form-control" id="isbn" name="isbn" placeholder="Ingrese el ISBN">
+      </div>
+
+      <div class="mb-2">
+        <label for="titulo" class="form-label">TITULO</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ingrese el título">
+      </div>
+
+      <div class="mb-2">
+        <label for="anio" class="form-label">AÑO</label>
+        <input type="number" class="form-control" id="anio" name="anio" placeholder="Ingrese el año" value="2021">
+      </div>
+
+      <div class="mb-2">
+        <label for="ejemplares" class="form-label">EJEMPLARES</label>
+        <input type="number" class="form-control" id="ejemplares" name="ejemplares"
+          placeholder="Ingrese la cantidad de ejemplares" value="1">
+      </div>
+
+      <div class="mb-2">
+
+        <label for="autor" class="form-label">AUTOR</label>
+
+        <select name="autor" class="form-control">
+          <option value="">----------Seleccione un autor ó cree uno nuevo----------</option>
+          <option th:each="autor : ${autores}" th:value="${autor.nombre}" th:text="${autor.nombre}"></option>
+        </select>
+
+        <div class="btn-crear">
+          <a th:href="@{/autor/registro-autor}" class="btn btn-secondary">Nuevo</a>
+        </div>
+
+      </div>
+
+      <div class="mb-2">
+        <label for="Editorial" class="form-label">EDITORIAL</label>
+
+        <select name="editorial" class="form-control">
+          <option value="">----------Seleccione una editorial ó cree una nueva----------</option>
+          <option th:each="editorial : ${editoriales}" th:value="${editorial.nombre}" th:text="${editorial.nombre}">
+          </option>
+        </select>
+
+        <div class="btn-crear">
+          <a th:href="@{/editorial/registro-editorial}" class="btn btn-secondary">Nueva</a>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn-libro">Enviar</button>
+    </form>
+  </div>
+
+  <div class="row py-lg-5">
+    <div class="col col-lg-6 col-md-8">
+      <input class="btn-libro" type="button" value="Volver" onClick="history.go(-1)">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-basic">
+    <footer th:replace="/fragments/footer :: footer"></footer>
+  </div>
+
+  <!-- JS Bootstrap -->
+  <script th:replace="/fragments/bootsjs :: script"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+spring:
+ #Configuración MySQL
+  datasource: 
+    url: postgres://vqofwiblrybvsi:732150501c4322d7fca3a034676c815b23f5a382d50b9359f07245ab82410104@ec2-54-73-152-36.eu-west-1.compute.amazonaws.com:5432/d6cgvlca69bseu
+    username: vqofwiblrybvsi
+    password: 732150501c4322d7fca3a034676c815b23f5a382d50b9359f07245ab82410104
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: f205838980a555
+    password: 882c7f4120c1a0
+#Configuración Creación de tablas (Hibernate)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+#Que thymeleaf no guarde datos en cache
+  thymeleaf:
+    cache: false
+
+  mvc:
+    format:
+      date:
+        dd/MM/yyyy
+  
+logging:
+   level:
+     org:
+       springframework:
+         web: debug
