@@ -10,7 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(" ")
+@RequestMapping("/")
 public class PortalControlador {
 
     @Autowired
