@@ -17,14 +17,8 @@ public class PortalControlador {
     private UsuarioServicio usuarioServicio;
 
     @GetMapping("/")
-    public String index(@RequestParam(required = false) String error, @RequestParam(required = false) String logout,
-            ModelMap model) {
-        if (error != null) {
-            model.put("error", "Usuario o clave incorrectos");            
-        }
-        if (logout != null) {
-            model.put("logout", "Ha salido correctamente.");
-        }
+    public String index() {
+        
         return "index";
     }
 
