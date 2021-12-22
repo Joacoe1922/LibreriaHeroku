@@ -20,7 +20,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL10Dialect
 #Que thymeleaf no guarde datos en cache
   thymeleaf:
-    cache: false
+    cache: true
 
   mvc:
     format:
